@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="20dp"
+    android:layout_marginTop="100dp"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/login_frame"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="-77dp"
+            android:background="@drawable/rect"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintTop_toBottomOf="@+id/login_dog" />
+        <ImageView
+            android:id="@+id/login_dog"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/dog"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:id="@+id/login_linear1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/login_dog"
+            app:layout_constraintBottom_toTopOf="@+id/login_button"
+            android:gravity="center"
+            >
+
+            <EditText
+                android:id="@+id/login_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="e-mail"
+                android:inputType="textEmailAddress"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/login_dog" />
+
+            <EditText
+                android:id="@+id/login_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="비밀번호"
+                android:inputType="textPassword"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/login_email"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rect_button"
+            android:gravity="center"
+            android:text="로그인"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/login_frame"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_linear1"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/login_frame"
+            android:layout_margin="20dp"
+            android:gravity="center_horizontal"
+            >
+            <TextView
+                android:id="@+id/login_find"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="아이디/비밀번호 찾기"
+                app:layout_constraintEnd_toStartOf="@+id/login_make"
+                app:layout_constraintTop_toBottomOf="@+id/login_frame"
+                />
+
+            <TextView
+                android:id="@+id/login_make"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="회원가입"
+                app:layout_constraintStart_toEndOf="@+id/login_find"
+                app:layout_constraintTop_toBottomOf="@+id/login_frame"
+                />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

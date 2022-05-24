@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Fighting">
         <activity
-            android:name=".MainActivity"
+            android:name=".login_activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

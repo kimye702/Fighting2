@@ -30,7 +30,7 @@
             android:id="@+id/make_frame"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintDimensionRatio="0.9"
+            app:layout_constraintDimensionRatio="1"
             app:layout_constraintTop_toTopOf="@id/make_text"
             app:layout_constraintBottom_toBottomOf="parent"
             android:background="@drawable/rect"
@@ -50,27 +50,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
-                >
-                <EditText
-                    android:id="@+id/make_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="7"
-                    android:inputType="textPersonName"
-                    android:hint="닉네임"
-                    app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
-                    />
-
-                <Button
-                    android:id="@+id/make_button1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:text="중복확인"
-                    />
-            </LinearLayout>
+                />
            <LinearLayout
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
@@ -103,7 +83,7 @@
                 android:layout_marginTop="10dp"
                 android:ems="10"
                 android:inputType="textPassword"
-                android:hint="비밀번호"
+                android:hint="비밀번호 (6자리 이상)"
                 />
 
             <EditText

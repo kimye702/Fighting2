@@ -45,36 +45,43 @@
             app:layout_constraintTop_toTopOf="@+id/make_frame"
             app:layout_constraintBottom_toTopOf="@+id/make_button3"
             >
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                />
-           <LinearLayout
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_marginTop="10dp"
-               >
+
+
                <EditText
+                   android:layout_marginTop="10dp"
                    android:id="@+id/make_email"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:ems="7"
+                   android:ems="10"
                    android:inputType="textEmailAddress"
                    app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
                    android:hint="e-mail"
                    />
-               <Button
-                   android:id="@+id/make_button2"
-                   android:layout_width="wrap_content"
-                   android:layout_height="match_parent"
-                   android:layout_marginLeft="10dp"
-                   android:text="중복확인"
-                   android:textStyle="bold"
-                   android:textColor="@color/black"
-                   />
-           </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/make_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:ems="8"
+                    android:hint="닉네임"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_frame" />
+                <Button
+                    android:id="@+id/check"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="중복확인"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    />
+            </LinearLayout>
+
 
             <EditText
                 android:id="@+id/make_password"

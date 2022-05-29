@@ -9,6 +9,7 @@ public class UserAccount {
     private String idToken; //파이어베이스 고유 토큰 정보
     private String emailId;
     private String password;
+    private String displayName;
 
     public UserAccount() { }
 
@@ -34,5 +35,13 @@ public class UserAccount {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String name) {
+        this.displayName = displayName;
     }
 }

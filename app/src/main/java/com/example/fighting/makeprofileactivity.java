@@ -9,7 +9,6 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -30,8 +29,7 @@ import java.io.InputStream;
 public class makeprofileactivity extends AppCompatActivity{
 
     private static final String TAG = "makeprofileactivity";
-    Button profile_button, profile_image_button;
-    EditText profile_name;
+    Button profile_button, profile_image_button, check;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -39,7 +37,7 @@ public class makeprofileactivity extends AppCompatActivity{
 
     private final int GALLERY_CODE = 10;
     private ImageView profile_image;
-    Uri file;
+    Uri file, filePath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -47,9 +45,10 @@ public class makeprofileactivity extends AppCompatActivity{
         setContentView(R.layout.make_profile);
 
         profile_button = (Button) findViewById(R.id.profile_button);
-        profile_name=(EditText)findViewById(R.id.profile_name);
         profile_image = (ImageView) findViewById(R.id.profile_image);
         profile_image_button = (Button) findViewById(R.id.profile_image_button);
+        check=(Button)findViewById(R.id.check);
+
 
         profile_image_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +63,7 @@ public class makeprofileactivity extends AppCompatActivity{
                 profileUpdate();
             }
         });
+
     }
 
     private void loadAlbum(){
@@ -97,18 +97,17 @@ public class makeprofileactivity extends AppCompatActivity{
             }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Toast.makeText(makeprofileactivity.this, "사진 등록 성공!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(makeprofileactivity.this, "사진 등록 성공", Toast.LENGTH_SHORT).show();
                 }
             });
         }
     }
 
-    private void profileUpdate() {
-        String name = profile_name.getText().toString();
 
-        if(name.length()>0){
+    private void profileUpdate() {
             if(user!=null){
-                UserInfo userinfo = new UserInfo(name, file.toString());
+                UserInfo userinfo = new UserInfo(file.toString());
+
 
                 db.collection("users").document(user.getUid()).set(userinfo)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -127,10 +126,5 @@ public class makeprofileactivity extends AppCompatActivity{
                             }
                         });
             }
-            }
-
-        else {
-            Toast.makeText(makeprofileactivity.this, "회원정보를 입력해주세요", Toast.LENGTH_SHORT).show();
-        }
     }
 }

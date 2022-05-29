@@ -22,6 +22,7 @@ public class loginactivity extends AppCompatActivity {
     private TextView login_make, login_find;
     private FirebaseAuth mFirebaseAuth; //파이어베이스 인증
     private DatabaseReference mDatabaseRef; //실시간 데이터베이스
+    private DatabaseReference databaseIdRef;
     private EditText login_email, login_password;
     private Button login_button;
 
@@ -35,6 +36,7 @@ public class loginactivity extends AppCompatActivity {
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         mDatabaseRef= FirebaseDatabase.getInstance().getReference("Fighting2");
+
 
         login_email=(EditText) findViewById(R.id.login_email);
         login_password=(EditText) findViewById(R.id.login_password);

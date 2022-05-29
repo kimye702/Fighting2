@@ -42,9 +42,8 @@
         <activity android:name=".MainActivity"/>
         <activity android:name=".makeprofileactivity"/>
         <activity android:name=".Walk"/>
-        <activity android:name=".DetailActivity"/>
-        <activity android:name=".RegisterActivity"/>
-        <activity android:name=".ListActivity"/>
+        <activity android:name=".profileactivity"/>
+
     </application>
 
 </manifest>

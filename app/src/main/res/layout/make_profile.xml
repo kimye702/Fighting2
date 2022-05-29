@@ -32,16 +32,6 @@
             app:layout_constraintBottom_toBottomOf="@id/profile_frame"
             >
 
-            <EditText
-                android:id="@+id/profile_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:hint="닉네임"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_frame" />
 
             <ImageView
                 android:id="@+id/profile_image"

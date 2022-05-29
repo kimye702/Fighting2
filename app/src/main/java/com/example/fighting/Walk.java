@@ -203,7 +203,7 @@ public class Walk extends AppCompatActivity implements OnMapReadyCallback, Activ
                     double pace = sum_dist/time;
                     String total_pace = String.format("%.2f",pace);
 
-                    text.setText("오늘 산책한 거리는 : "+total_dist+"m\n평균 산책 페이스는 : "+total_pace+"m/s");
+                    text.setText("오늘 산책한 거리는 : "+total_dist+"m\n평균 산책 속도는 : "+total_pace+"m/s");
 
                 }
             }

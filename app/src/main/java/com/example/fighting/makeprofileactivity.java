@@ -116,6 +116,7 @@ public class makeprofileactivity extends AppCompatActivity{
                                 Toast.makeText(makeprofileactivity.this, "회원정보 등록을 성공했습니다", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(makeprofileactivity.this, loginactivity.class);
                                 startActivity(intent);
+                                finish();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {

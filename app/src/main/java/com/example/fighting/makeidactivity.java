@@ -96,8 +96,8 @@ public class makeidactivity extends AppCompatActivity {
                                         if(task.isSuccessful()){
                                             FirebaseUser firebaseUser = mFirebaseAuth.getCurrentUser();
                                             UserAccount account=new UserAccount();
-                                            account.setIdToken(firebaseUser.getEmail());
-                                            account.setEmailId(firebaseUser.getUid());
+                                            account.setIdToken(firebaseUser.getUid());
+                                            account.setEmailId(firebaseUser.getEmail());
                                             account.setPassword(strPassword);
 
                                             //setValue : database에 insert 행위
@@ -122,6 +122,7 @@ public class makeidactivity extends AppCompatActivity {
 
                                             Intent intent1 = new Intent(makeidactivity.this, makeprofileactivity.class);
                                             startActivity(intent1);
+                                            finish();
 
                                         }
                                         else{

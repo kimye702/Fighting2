@@ -99,6 +99,7 @@ public class makeidactivity extends AppCompatActivity {
                                             account.setIdToken(firebaseUser.getUid());
                                             account.setEmailId(firebaseUser.getEmail());
                                             account.setPassword(strPassword);
+                                            account.setName(strName);
 
                                             //setValue : database에 insert 행위
                                             mDatabaseRef.child("UserAccount").child(strName).setValue(account);

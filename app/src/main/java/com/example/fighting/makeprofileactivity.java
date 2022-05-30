@@ -106,8 +106,7 @@ public class makeprofileactivity extends AppCompatActivity{
 
     private void profileUpdate() {
             if(user!=null){
-                UserInfo userinfo = new UserInfo(file.toString());
-
+                UserInfo userinfo = new UserInfo(user.getDisplayName());
 
                 db.collection("users").document(user.getUid()).set(userinfo)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {

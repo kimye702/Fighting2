@@ -77,7 +77,6 @@ public class makeidactivity extends AppCompatActivity {
             }
         });
 
-
         make_button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

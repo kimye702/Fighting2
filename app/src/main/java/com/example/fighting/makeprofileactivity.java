@@ -105,26 +105,26 @@ public class makeprofileactivity extends AppCompatActivity{
 
 
     private void profileUpdate() {
-            if(user!=null){
-                UserInfo userinfo = new UserInfo(user.getDisplayName());
+        if(user!=null){
+            UserInfo userinfo = new UserInfo(user.getDisplayName());
 
-                db.collection("users").document(user.getUid()).set(userinfo)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Toast.makeText(makeprofileactivity.this, "회원정보 등록을 성공했습니다", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(makeprofileactivity.this, loginactivity.class);
-                                startActivity(intent);
-                                finish();
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Log.w(TAG, "Error writing document", e);
-                                Toast.makeText(makeprofileactivity.this, "회원정보 등록에 실패했습니다", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-            }
+            db.collection("users").document(user.getUid()).set(userinfo)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(makeprofileactivity.this, "회원정보 등록을 성공했습니다", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(makeprofileactivity.this, loginactivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error writing document", e);
+                            Toast.makeText(makeprofileactivity.this, "회원정보 등록에 실패했습니다", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
     }
 }

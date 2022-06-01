@@ -43,6 +43,7 @@
         <activity android:name=".makeprofileactivity"/>
         <activity android:name=".Walk"/>
         <activity android:name=".profileactivity"/>
+        <activity android:name=".WritePostActivity"/>
 
     </application>
 

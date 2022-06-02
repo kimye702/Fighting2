@@ -74,11 +74,11 @@ public class Walk extends AppCompatActivity implements OnMapReadyCallback, Activ
     private static final int UPDATE_INTERVAL_MS = 1000;  // 1초
     private static final int FASTEST_UPDATE_INTERVAL_MS = 500; // 0.5초
 
-    // onRequestPermissionsResult에서 수신된 결과에서 ActivityCompat.requestPermissions를 사용한 퍼미션 요청을 구별하기 위해 사용됩니다.
+
     private static final int PERMISSIONS_REQUEST_CODE = 100;
     boolean needRequest = false;
 
-    // 앱을 실행하기 위해 필요한 퍼미션을 정의합니다.
+    // 앱 실행하기 위해 필요한 퍼미션
     String[] REQUIRED_PERMISSIONS  = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};  // 외부 저장소
 
     Location mCurrentLocatiion;
@@ -93,7 +93,7 @@ public class Walk extends AppCompatActivity implements OnMapReadyCallback, Activ
     private LocationRequest locationRequest;
     private Location location;
 
-    private View mLayout;  // Snackbar 사용하기 위해서는 View가 필요합니다.
+    private View mLayout;  // Snackbar 사용하기위함.
 
     private double sum_dist; // 총 이동 거리
 
@@ -234,39 +234,35 @@ public class Walk extends AppCompatActivity implements OnMapReadyCallback, Activ
 
         mMap = googleMap;
 
-        //런타임 퍼미션 요청 대화상자나 GPS 활성 요청 대화상자 보이기전에
-        //지도의 초기위치를 서울로 이동
+        //지도 초기위치를 서울로 지정
         setDefaultLocation();
 
-        //런타임 퍼미션 처리
-        // 1. 위치 퍼미션을 가지고 있는지 체크합니다.
+        //위치 퍼미션 갖고 있는지 체크
         int hasFineLocationPermission = ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION);
         int hasCoarseLocationPermission = ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_COARSE_LOCATION);
 
+
         if (hasFineLocationPermission == PackageManager.PERMISSION_GRANTED &&
                 hasCoarseLocationPermission == PackageManager.PERMISSION_GRANTED   ) {
 
-            // 2. 이미 퍼미션을 가지고 있다면
-            // ( 안드로이드 6.0 이하 버전은 런타임 퍼미션이 필요없기 때문에 이미 허용된 걸로 인식합니다.)
-
-            startLocationUpdates(); // 3. 위치 업데이트 시작
+            startLocationUpdates(); //위치 업데이트 시작
 
 
-        }else {  //2. 퍼미션 요청을 허용한 적이 없다면 퍼미션 요청이 필요합니다. 2가지 경우(3-1, 4-1)가 있습니다.
+        }else {
 
-            // 3-1. 사용자가 퍼미션 거부를 한 적이 있는 경우에는
+            //퍼미션 거부하면
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, REQUIRED_PERMISSIONS[0])) {
 
-                // 3-2. 요청을 진행하기 전에 사용자가에게 퍼미션이 필요한 이유를 설명해줄 필요가 있습니다.
+                //퍼미션 이유 알려주기
                 Snackbar.make(mLayout, "이 앱을 실행하려면 위치 접근 권한이 필요합니다.",
                         Snackbar.LENGTH_INDEFINITE).setAction("확인", new View.OnClickListener() {
 
                     @Override
                     public void onClick(View view) {
 
-                        // 3-3. 사용자게에 퍼미션 요청을 합니다. 요청 결과는 onRequestPermissionResult에서 수신됩니다.
+                        //퍼미션 요청하기
                         ActivityCompat.requestPermissions( Walk.this, REQUIRED_PERMISSIONS,
                                 PERMISSIONS_REQUEST_CODE);
                     }
@@ -274,8 +270,6 @@ public class Walk extends AppCompatActivity implements OnMapReadyCallback, Activ
 
 
             } else {
-                // 4-1. 사용자가 퍼미션 거부를 한 적이 없는 경우에는 퍼미션 요청을 바로 합니다.
-                // 요청 결과는 onRequestPermissionResult에서 수신됩니다.
                 ActivityCompat.requestPermissions( this, REQUIRED_PERMISSIONS,
                         PERMISSIONS_REQUEST_CODE);
             }
@@ -424,7 +418,7 @@ public class Walk extends AppCompatActivity implements OnMapReadyCallback, Activ
 
     public String getCurrentAddress(LatLng latlng) {
 
-        //지오코더... GPS를 주소로 변환
+        //지오코더 -> gps를 주소로 변환
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
 
         List<Address> addresses;
@@ -435,7 +429,6 @@ public class Walk extends AppCompatActivity implements OnMapReadyCallback, Activ
                     latlng.longitude,
                     1);
         } catch (IOException ioException) {
-            //네트워크 문제
             Toast.makeText(this, "지오코더 서비스 사용불가", Toast.LENGTH_LONG).show();
             return "지오코더 서비스 사용불가";
         } catch (IllegalArgumentException illegalArgumentException) {
@@ -509,8 +502,6 @@ public class Walk extends AppCompatActivity implements OnMapReadyCallback, Activ
 
     }
 
-
-    //여기부터는 런타임 퍼미션 처리을 위한 메소드들
     private boolean checkPermission() {
 
         int hasFineLocationPermission = ContextCompat.checkSelfPermission(this,
@@ -534,11 +525,8 @@ public class Walk extends AppCompatActivity implements OnMapReadyCallback, Activ
         super.onRequestPermissionsResult(permsRequestCode, permissions, grandResults);
         if (permsRequestCode == PERMISSIONS_REQUEST_CODE && grandResults.length == REQUIRED_PERMISSIONS.length) {
 
-            // 요청 코드가 PERMISSIONS_REQUEST_CODE 이고, 요청한 퍼미션 개수만큼 수신되었다면
             boolean check_result = true;
 
-
-            // 모든 퍼미션을 허용했는지 체크합니다.
             for (int result : grandResults) {
                 if (result != PackageManager.PERMISSION_GRANTED) {
                     check_result = false;
@@ -547,17 +535,12 @@ public class Walk extends AppCompatActivity implements OnMapReadyCallback, Activ
             }
 
             if (check_result) {
-
-                // 퍼미션을 허용했다면 위치 업데이트를 시작합니다.
                 startLocationUpdates();
-            } else {
-                // 거부한 퍼미션이 있다면 앱을 사용할 수 없는 이유를 설명해주고 앱을 종료합니다.2 가지 경우가 있습니다.
+            } else{
 
                 if (ActivityCompat.shouldShowRequestPermissionRationale(this, REQUIRED_PERMISSIONS[0])
                         || ActivityCompat.shouldShowRequestPermissionRationale(this, REQUIRED_PERMISSIONS[1])) {
 
-
-                    // 사용자가 거부만 선택한 경우에는 앱을 다시 실행하여 허용을 선택하면 앱을 사용할 수 있습니다.
                     Snackbar.make(mLayout, "퍼미션이 거부되었습니다. 앱을 다시 실행하여 퍼미션을 허용해주세요. ",
                             Snackbar.LENGTH_INDEFINITE).setAction("확인", new View.OnClickListener() {
 
@@ -569,9 +552,6 @@ public class Walk extends AppCompatActivity implements OnMapReadyCallback, Activ
                     }).show();
 
                 } else {
-
-
-                    // "다시 묻지 않음"을 사용자가 체크하고 거부를 선택한 경우에는 설정(앱 정보)에서 퍼미션을 허용해야 앱을 사용할 수 있습니다.
                     Snackbar.make(mLayout, "퍼미션이 거부되었습니다. 설정(앱 정보)에서 퍼미션을 허용해야 합니다. ",
                             Snackbar.LENGTH_INDEFINITE).setAction("확인", new View.OnClickListener() {
 
@@ -587,8 +567,7 @@ public class Walk extends AppCompatActivity implements OnMapReadyCallback, Activ
         }
     }
 
-
-    //여기부터는 GPS 활성화를 위한 메소드들
+    //gps 활성화
     private void showDialogForLocationServiceSetting() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(Walk.this);

@@ -1,5 +1,6 @@
 package com.example.fighting;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,6 +28,8 @@ public class WritePostActivity extends AppCompatActivity {
         setContentView(R.layout.activity_write_post);
 
         findViewById(R.id.register_button).setOnClickListener(onClickListener);
+        findViewById(R.id.image_add).setOnClickListener(onClickListener);
+        findViewById(R.id.video_add).setOnClickListener(onClickListener);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -35,6 +38,12 @@ public class WritePostActivity extends AppCompatActivity {
             switch (view.getId()){
                 case R.id.register_button:
                     profileUpdate();
+                    break;
+                case R.id.image_add:
+                    myStartActivity(GalleryActivity.class, "image");
+                    break;
+                case R.id.video_add:
+                    myStartActivity(GalleryActivity.class, "video");
                     break;
             }
 
@@ -73,5 +82,11 @@ public class WritePostActivity extends AppCompatActivity {
 
     private void startToast(String msg){
         Toast.makeText(WritePostActivity.this,msg,Toast.LENGTH_SHORT).show();
+    }
+
+    private void myStartActivity(Class c, String media){
+        Intent intent = new Intent(this, c);
+        Intent.putExtra("media",media);
+        startActivityForResult(Intent, 0);
     }
 }

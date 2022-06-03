@@ -61,7 +61,7 @@
         android:layout_gravity="center"
         android:background="@null"
         android:onClick="saveEventAction"
-        android:src="@drawable/ic_baseline_save_24"
+        android:src="@drawable/dog"
         android:textColor="@color/d"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -71,7 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="391dp"
         android:layout_margin="20dp"
-        app:srcCompat="@drawable/playwithme" />
+        app:srcCompat="@drawable/dog" />
 
 
 </LinearLayout>

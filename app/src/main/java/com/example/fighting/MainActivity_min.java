@@ -1,7 +1,7 @@
 package com.example.fighting;
 
-import static com.example.cal_project1.CalendarUtils.daysInMonthArray;
-import static com.example.cal_project1.CalendarUtils.monthYearFromDate;
+import static com.example.fighting.CalendarUtils.daysInMonthArray;
+import static com.example.fighting.CalendarUtils.monthYearFromDate;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;

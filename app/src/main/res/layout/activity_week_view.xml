@@ -21,8 +21,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/back"
-            android:textColor="@color/d"
-            android:background=""
+            android:textColor="@color/white"
+            android:background="@color/s"
             android:textStyle="bold"
             android:onClick="previousWeekAction"
             android:textSize="20sp"/>
@@ -43,8 +43,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/forward"
-            android:textColor="@color/d"
-            android:background=""
+            android:textColor="@color/white"
+            android:background="@color/s"
             android:textStyle="bold"
             android:onClick="nextWeekAction"
             android:textSize="20sp"/>
@@ -171,6 +171,7 @@
         android:layout_gravity="center"
         android:background="@color/d"
         android:text="계획 확인"
+        android:textColor="@color/black"
         android:textStyle="bold" />
 
     <TextView
@@ -187,9 +188,9 @@
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/s"
         android:text="일정 완료"
-        android:textColor="@color/d"/>
+        android:textColor="@color/white"
+        android:background="@color/s"/>
 
 
 </LinearLayout>

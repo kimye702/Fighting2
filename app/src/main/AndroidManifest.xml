@@ -44,6 +44,7 @@
         <activity android:name=".Walk"/>
         <activity android:name=".profileactivity"/>
         <activity android:name=".WritePostActivity"/>
+        <activity android:name=".GalleryActivity"/>
 
     </application>
 

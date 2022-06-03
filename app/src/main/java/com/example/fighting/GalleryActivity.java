@@ -1,5 +1,6 @@
 package com.example.fighting;
 
+import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -25,11 +26,12 @@ public class GalleryActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this, numberOfColumns));
 
-        mAdapter = new GalleryAdapter(this, getImagesPath(this));
+        String[] myDataset = {"강아지","고양이"};
+        mAdapter = new GalleryAdapter(myDataset);
         recyclerView.setAdapter(mAdapter);
     }
 
-    public static ArrayList<String> getImagesPath(Activity activity){
+    /*public static ArrayList<String> getImagesPath(Activity activity){
         Uri uri;
         ArrayList<String> listOfAllImages = new ArrayList<~>();
         Cursor cursor;
@@ -47,6 +49,6 @@ public class GalleryActivity extends AppCompatActivity {
 
             listOfAllImages.add(PathOfImage);
         }
-        return listOfAllImages
-    }
+        return listOfAllImages;
+    }*/
 }

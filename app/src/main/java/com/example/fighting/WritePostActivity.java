@@ -1,6 +1,8 @@
 package com.example.fighting;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.fighting.R;
 import com.example.fighting.WriteInfo;
@@ -40,7 +44,19 @@ public class WritePostActivity extends AppCompatActivity {
                     profileUpdate();
                     break;
                 case R.id.image_add:
-                    myStartActivity(GalleryActivity.class, "image");
+                    if(ContextCompat.checkSelfPermission(WritePostActivity.this, Manifest.permission.READ_CONTACTS)
+                            != PackageManager.PERMISSION_GRANTED) {
+                        if (ActivityCompat.shouldShowRequestPermissionRationale(WritePostActivity.this,
+                                Manifest.permission.READ_CONTACTS)) {
+                            ActivityCompat.requestPermissions(WritePostActivity.this,
+                                    new String[]{Manifest.permission.READ_CONTACTS}, 1);
+                        } else {
+                            startToast("권한을 허용해 주세요.");
+                        }
+                    }
+                    else {
+                        myStartActivity(GalleryActivity.class, "image");
+                    }
                     break;
                 case R.id.video_add:
                     myStartActivity(GalleryActivity.class, "video");
@@ -86,7 +102,6 @@ public class WritePostActivity extends AppCompatActivity {
 
     private void myStartActivity(Class c, String media){
         Intent intent = new Intent(this, c);
-        Intent.putExtra("media",media);
-        startActivityForResult(Intent, 0);
+        startActivityForResult(intent, 0);
     }
 }

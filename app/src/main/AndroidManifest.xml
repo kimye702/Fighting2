@@ -44,7 +44,8 @@
         <activity android:name=".makeprofileactivity"/>
         <activity android:name=".Walk"/>
         <activity android:name=".profileactivity"/>
-        <activity android:name=".WritePostActivity"/>
+        <activity android:name=".ListActivity"/>
+        <activity android:name=".RegisterActivity"/>
         <activity android:name=".GalleryActivity"/>
         <activity android:name=".MainActivity_min"/>
         <activity android:name=".WeekViewActivity"/>

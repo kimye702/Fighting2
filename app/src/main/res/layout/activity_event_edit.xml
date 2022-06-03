@@ -55,23 +55,5 @@
         android:textColor="@color/black"
         android:textSize="20sp" />
 
-    <ImageButton
-        android:layout_width="62dp"
-        android:layout_height="62dp"
-        android:layout_gravity="center"
-        android:background="@null"
-        android:onClick="saveEventAction"
-        android:src="@drawable/ic_baseline_save_24"
-        android:textColor="@color/d"
-        android:textSize="30sp"
-        android:textStyle="bold" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="391dp"
-        android:layout_margin="20dp"
-        app:srcCompat="@drawable/playwithme" />
-
 
 </LinearLayout>

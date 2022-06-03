@@ -17,11 +17,11 @@
         android:paddingBottom="15dp"
         android:paddingTop="50dp">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@null"
+            android:background="null"
             android:onClick="previousMonthAction"
             android:text="@string/back"
             android:textColor="@color/d"
@@ -39,7 +39,7 @@
             android:textColor="@color/d"
             android:textSize="25sp" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

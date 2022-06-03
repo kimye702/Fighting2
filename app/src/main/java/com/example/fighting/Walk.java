@@ -161,7 +161,7 @@ public class Walk extends AppCompatActivity implements OnMapReadyCallback, Activ
                     optFirst.position(startLatLng);
                     optFirst.title("산책 시작 지점");
 
-                    BitmapDrawable bitmapdraw = (BitmapDrawable) getResources().getDrawable(R.drawable.dog);
+                    BitmapDrawable bitmapdraw = (BitmapDrawable) getResources().getDrawable(R.drawable.dog1);
                     Bitmap b = bitmapdraw.getBitmap();
                     Bitmap smallMarker = Bitmap.createScaledBitmap(b, 150, 150, false);
                     optFirst.icon(BitmapDescriptorFactory.fromBitmap(smallMarker));
@@ -186,7 +186,7 @@ public class Walk extends AppCompatActivity implements OnMapReadyCallback, Activ
                     optSecond.position(endLatLng);
                     optSecond.title("산책 종료 지점");
 
-                    BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.dog);
+                    BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.dog1);
                     Bitmap b=bitmapdraw.getBitmap();
                     Bitmap smallMarker = Bitmap.createScaledBitmap(b, 150, 150, false);
                     optSecond.icon(BitmapDescriptorFactory.fromBitmap(smallMarker));

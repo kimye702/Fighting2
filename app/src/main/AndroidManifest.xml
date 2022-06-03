@@ -46,6 +46,8 @@
         <activity android:name=".WritePostActivity"/>
         <activity android:name=".GalleryActivity"/>
         <activity android:name=".MainActivity_min"/>
+        <activity android:name=".WeekViewActivity"/>
+        <activity android:name=".EventEditActivity"/>
 
     </application>
 

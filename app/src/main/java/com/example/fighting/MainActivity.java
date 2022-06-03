@@ -26,6 +26,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        calendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity_min.class);
+                startActivity(intent);
+            }
+        });
+
         map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

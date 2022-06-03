@@ -60,7 +60,7 @@ public class profileactivity extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
-                imageView.setImageResource(R.drawable.dog);
+                imageView.setImageResource(R.drawable.dog1);
             }
         });
 

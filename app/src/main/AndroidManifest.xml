@@ -18,7 +18,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="놀아주개"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Fighting">
@@ -28,6 +28,7 @@
             android:value="AIzaSyBfDOhTHb462mtX0MEwk7aaPBFkKhJzAoI" />
 
         <activity
+            android:label="놀아주개"
             android:name=".loginactivity"
             android:exported="true"
             android:theme="@style/SplashTheme">
@@ -38,13 +39,27 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".makeidactivity"/>
-        <activity android:name=".findidactivity"/>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".makeprofileactivity"/>
-        <activity android:name=".Walk"/>
-        <activity android:name=".profileactivity"/>
-        <activity android:name=".WritePostActivity"/>
+        <activity android:name=".makeidactivity"
+            android:label="회원가입"
+            />
+        <activity android:name=".findidactivity"
+            android:label="이메일/비밀번호 찾기"
+            />
+        <activity android:name=".MainActivity"
+            android:label="놀아주개"
+            />
+        <activity android:name=".makeprofileactivity"
+            android:label="프로필 설정"
+            />
+        <activity android:name=".Walk"
+            android:label="산책"
+            />
+        <activity android:name=".profileactivity"
+            android:label="내 프로필"
+            />
+        <activity android:name=".WritePostActivity"
+            android:label="게시판"
+            />
         <activity android:name=".GalleryActivity"/>
         <activity android:name=".MainActivity_min"/>
         <activity android:name=".WeekViewActivity"/>

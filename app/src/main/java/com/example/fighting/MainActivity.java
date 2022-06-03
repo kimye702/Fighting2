@@ -3,7 +3,7 @@ package com.example.fighting;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,12 +13,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btn_notice = (Button) findViewById(R.id.main_button1);
-        Button btn_calendar = (Button) findViewById(R.id.main_button2);
-        Button btn_map = (Button) findViewById(R.id.main_button3);
-        Button btn_profile = (Button) findViewById(R.id.main_button4);
+        ImageView community = (ImageView) findViewById(R.id.main_button1);
+        ImageView calendar = (ImageView) findViewById(R.id.main_button2);
+        ImageView map = (ImageView) findViewById(R.id.main_button3);
+        ImageView profile = (ImageView) findViewById(R.id.main_button4);
 
-        btn_notice.setOnClickListener(new View.OnClickListener() {
+        community.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), ListActivity.class);
@@ -26,15 +26,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn_calendar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity_min.class);
-                startActivity(intent);
-            }
-        });
-
-        btn_map.setOnClickListener(new View.OnClickListener() {
+        map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Walk.class);
@@ -42,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn_profile.setOnClickListener(new View.OnClickListener() {
+        profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), profileactivity.class);

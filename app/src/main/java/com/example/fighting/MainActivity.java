@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button btn_notice = (Button) findViewById(R.id.main_button1);
+        Button btn_calendar = (Button) findViewById(R.id.main_button2);
         Button btn_map = (Button) findViewById(R.id.main_button3);
         Button btn_profile = (Button) findViewById(R.id.main_button4);
 
@@ -21,6 +22,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), WritePostActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_calendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity_min.class);
                 startActivity(intent);
             }
         });

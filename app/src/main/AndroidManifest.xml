@@ -50,8 +50,6 @@
             android:label="산책"/>
         <activity android:name=".profileactivity"
             android:label="내 프로필"/>
-        <activity android:name=".ListActivity"
-            android:label="자유 게시판"/>
         <activity android:name=".RegisterActivity"
             android:label="글 쓰기"/>
         <activity android:name=".DetailActivity"

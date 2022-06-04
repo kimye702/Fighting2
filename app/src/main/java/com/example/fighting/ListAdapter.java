@@ -23,7 +23,6 @@ import com.example.fighting.PostActivity;
 import com.example.fighting.WritePostActivity;
 import com.example.fighting.OnPostListener;
 import com.example.fighting.ReadContentsView;
-import com.google.android.exoplayer2.SimpleExoPlayer;
 
 import java.util.ArrayList;
 
@@ -31,7 +30,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MainViewHolder
     private ArrayList<PostInfo> mDataset;
     private Activity activity;
     private FirebaseHelper firebaseHelper;
-    private ArrayList<ArrayList<SimpleExoPlayer>> playerArrayListArrayList = new ArrayList<>();
+    private ArrayList[] playerArrayListArrayList = new ArrayList[];
     private final int MORE_INDEX = 2;
 
     static class MainViewHolder extends RecyclerView.ViewHolder {
@@ -100,7 +99,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MainViewHolder
             readContentsView.setMoreIndex(MORE_INDEX);
             readContentsView.setPostInfo(postInfo);
 
-            ArrayList<SimpleExoPlayer> playerArrayList = readContentsView.getPlayerArrayList();
+            ArrayList[] playerArrayList = readContentsView.getPlayerArrayList();
             if(playerArrayList != null){
                 playerArrayListArrayList.add(playerArrayList);
             }
@@ -141,15 +140,5 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MainViewHolder
         activity.startActivity(intent);
     }
 
-    public void playerStop(){
-        for(int i = 0; i < playerArrayListArrayList.size(); i++){
-            ArrayList<SimpleExoPlayer> playerArrayList = playerArrayListArrayList.get(i);
-            for(int ii = 0; ii < playerArrayList.size(); ii++){
-                SimpleExoPlayer player = playerArrayList.get(ii);
-                if(player.getPlayWhenReady()){
-                    player.setPlayWhenReady(false);
-                }
-            }
-        }
-    }
+
 }

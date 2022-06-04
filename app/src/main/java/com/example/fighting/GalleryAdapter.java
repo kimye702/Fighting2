@@ -1,43 +1,67 @@
 package com.example.fighting;
 
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import android.widget.Gallery;
-import android.widget.TextView;
+import android.app.Activity;
+import android.content.Intent;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 
-public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder> {
-    private String[] mDataset;
+import com.bumptech.glide.Glide;
+import com.example.fighting.R;
 
-    public static class GalleryViewHolder extends RecyclerView.ViewHolder{
-        public CardView cardView;
-        public GalleryViewHolder(CardView v){
+import java.util.ArrayList;
+
+import static com.example.fighting.Util.INTENT_PATH;
+
+public class GalleryAdapter  extends RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder> {
+    private ArrayList<String> mDataset;
+    private Activity activity;
+
+    static class GalleryViewHolder extends RecyclerView.ViewHolder {
+        CardView cardView;
+        GalleryViewHolder(CardView v) {
             super(v);
             cardView = v;
         }
     }
 
-    public GalleryAdapter(String[] myDataset){
+    public GalleryAdapter(Activity activity, ArrayList<String> myDataset) {
         mDataset = myDataset;
+        this.activity = activity;
+    }
+
+    @NonNull
+    @Override
+    public GalleryAdapter.GalleryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        CardView cardView = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.item_gallery, parent, false);
+        final GalleryViewHolder galleryViewHolder = new GalleryViewHolder(cardView);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra(INTENT_PATH, mDataset.get(galleryViewHolder.getAdapterPosition()));
+                activity.setResult(Activity.RESULT_OK, resultIntent);
+                activity.finish();
+            }
+        });
+
+        return galleryViewHolder;
     }
 
     @Override
-    public GalleryAdapter.GalleryViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        CardView v =(CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.item_gallery,parent, false);
-        GalleryViewHolder vh = new GalleryViewHolder(v);
-        return vh;
+    public void onBindViewHolder(@NonNull final GalleryViewHolder holder, int position) {
+        CardView cardView = holder.cardView;
+        ImageView imageView = cardView.findViewById(R.id.imageView);
+        Glide.with(activity).load(mDataset.get(position)).centerCrop().override(500).into(imageView);
     }
 
     @Override
-    public void onBindViewHolder(GalleryViewHolder holder, int position){
-        TextView textView = holder.cardView.findViewById(R.id.textView);
-        textView.setText(mDataset[position]);
-    }
-
-    @Override
-    public int getItemCount(){
-        return mDataset.length;
+    public int getItemCount() {
+        return mDataset.size();
     }
 }

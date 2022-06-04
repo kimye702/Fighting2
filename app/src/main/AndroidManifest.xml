@@ -54,6 +54,8 @@
             android:label="자유 게시판"/>
         <activity android:name=".RegisterActivity"
             android:label="글 쓰기"/>
+        <activity android:name=".DetailActivity"
+            android:label="게시글"/>
         <activity android:name=".GalleryActivity"
             android:label="놀아주개"/>
         <activity android:name=".MainActivity_min"
@@ -62,6 +64,8 @@
             android:label="캘린더"/>
         <activity android:name=".EventEditActivity"
             android:label="캘린더"/>
+        <activity android:name=".WritePostActivity"
+            android:label="게시글 작성"/>
 
     </application>
 

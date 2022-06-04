@@ -46,7 +46,7 @@ public class profileactivity extends AppCompatActivity {
         setContentView(R.layout.profile);
 
         mFirebaseAuth=FirebaseAuth.getInstance();
-        imageView=(ImageView)findViewById(R.id.image);
+        imageView=(ImageView)findViewById(R.id.image_add);
         name=(TextView)findViewById(R.id.name);
         email=(TextView)findViewById(R.id.email);
         logout=(Button)findViewById(R.id.logout);

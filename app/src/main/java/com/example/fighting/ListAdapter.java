@@ -2,12 +2,6 @@ package com.example.fighting;
 
 import android.app.Activity;
 import android.content.Intent;
-
-import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.appcompat.widget.PopupMenu;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -16,13 +10,10 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.fighting.FirebaseHelper;
-import com.example.fighting.PostInfo;
-import com.example.fighting.R;
-import com.example.fighting.PostActivity;
-import com.example.fighting.WritePostActivity;
-import com.example.fighting.OnPostListener;
-import com.example.fighting.ReadContentsView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.PopupMenu;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -99,7 +90,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MainViewHolder
             readContentsView.setMoreIndex(MORE_INDEX);
             readContentsView.setPostInfo(postInfo);
 
-            ArrayList[] playerArrayList = readContentsView.getPlayerArrayList();
+            ArrayList playerArrayList = readContentsView.getPlayerArrayList();
             if(playerArrayList != null){
                 playerArrayListArrayList.add(playerArrayList);
             }

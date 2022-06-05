@@ -16,7 +16,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -55,7 +54,7 @@ public class profileactivity extends AppCompatActivity {
         storageRef.child("users/"+user.getUid()+"/profileImage.jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                Glide.with(profileactivity.this).load(uri).circleCrop().into(imageView);
+                imageView.setImageURI(uri);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

@@ -1,10 +1,6 @@
 package com.example.fighting;
 
 import android.content.Context;
-
-import androidx.annotation.Nullable;
-
-import android.net.Uri;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -12,9 +8,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+
 import com.bumptech.glide.Glide;
-import com.example.fighting.PostInfo;
-import com.example.fighting.R;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -23,7 +19,7 @@ import java.util.Locale;
 public class ReadContentsView extends LinearLayout {
     private Context context;
     private LayoutInflater layoutInflater;
-    private ArrayList[] playerArrayList = new ArrayList[];
+    private ArrayList playerArrayList = new ArrayList();
     private int moreIndex = -1;
 
     public ReadContentsView(Context context) {
@@ -82,7 +78,7 @@ public class ReadContentsView extends LinearLayout {
         }
     }
 
-    public ArrayList[] getPlayerArrayList() {
+    public ArrayList getPlayerArrayList() {
         return playerArrayList;
     }
 }

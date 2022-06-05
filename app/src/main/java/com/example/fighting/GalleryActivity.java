@@ -1,5 +1,9 @@
 package com.example.fighting;
 
+import static com.example.fighting.Util.GALLERY_IMAGE;
+import static com.example.fighting.Util.INTENT_MEDIA;
+import static com.example.fighting.Util.showToast;
+
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
@@ -8,21 +12,14 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.fighting.R;
-import com.example.fighting.GalleryAdapter;
-
 import java.util.ArrayList;
-
-import static com.example.fighting.Util.GALLERY_IMAGE;
-import static com.example.fighting.Util.INTENT_MEDIA;
-import static com.example.fighting.Util.showToast;
 
 public class GalleryActivity extends AppCompatActivity {
 
@@ -50,6 +47,7 @@ public class GalleryActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case 1: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {

@@ -14,12 +14,12 @@
             android:orientation="vertical"
             android:padding="10dp">
 
-            <com.example.fighting.ReadContentsVIew
+            <com.example.fighting.ReadContentsView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/readContentsView">
 
-            </com.example.fighting.ReadContentsVIew>
+            </com.example.fighting.ReadContentsView>
         </LinearLayout>
     </ScrollView>
 

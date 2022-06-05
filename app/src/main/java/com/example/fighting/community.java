@@ -13,6 +13,7 @@ public class community extends AppCompatActivity {
 
     private FragmentManager fragmentManager;
     private ListActivity fragmentA;
+    private ListPictureActivity fragmentB;
     private FragmentTransaction transaction;
     private Button btn1, btn2;
 
@@ -41,7 +42,13 @@ public class community extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(community.this, GalleryActivity.class);
+                fragmentManager = getSupportFragmentManager();
+
+                fragmentB = new ListPictureActivity();
+
+                transaction = fragmentManager.beginTransaction();
+
+                transaction.replace(R.id.frameLayout, fragmentB).commit();
             }
         });
     }

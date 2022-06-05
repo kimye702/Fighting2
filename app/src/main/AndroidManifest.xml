@@ -64,6 +64,8 @@
             android:label="캘린더"/>
         <activity android:name=".WritePostActivity"
             android:label="게시글 작성"/>
+        <activity android:name=".WritePictureActivity"
+            android:label="사진게시글 작성"/>
         <activity android:name=".PostActivity"
             android:label="게시글 작성"/>
         <activity android:name=".community"

@@ -53,10 +53,11 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final GalleryViewHolder holder, int position) {
+    public void onBindViewHolder(final GalleryViewHolder holder, int position) {
         CardView cardView = holder.cardView;
         ImageView imageView = cardView.findViewById(R.id.imageView);
-        Glide.with(activity).load(mDataset.get(position)).centerCrop().override(500).into(imageView);
+        //Glide.with(activity).load(mDataset.get(position)).into(imageView);
+        //이게 문제
     }
 
     @Override

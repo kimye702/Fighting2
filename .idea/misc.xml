@@ -7,11 +7,8 @@
         <entry key="..\:/Fighting2/app/src/main/res/drawable/rect.xml" value="0.128" />
         <entry key="..\:/Fighting2/app/src/main/res/drawable/rect_button.xml" value="0.1425" />
         <entry key="..\:/Fighting2/app/src/main/res/layout/activity_camera.xml" value="0.2390625" />
-        <entry key="..\:/Fighting2/app/src/main/res/layout/activity_gallery.xml" value="0.11145833333333334" />
         <entry key="..\:/Fighting2/app/src/main/res/layout/activity_main.xml" value="0.19655797101449277" />
         <entry key="..\:/Fighting2/app/src/main/res/layout/activity_map.xml" value="0.25364583333333335" />
-        <entry key="..\:/Fighting2/app/src/main/res/layout/activity_post.xml" value="0.13645833333333332" />
-        <entry key="..\:/Fighting2/app/src/main/res/layout/community.xml" value="0.10989583333333333" />
         <entry key="..\:/Fighting2/app/src/main/res/layout/find_id.xml" value="0.22509057971014493" />
         <entry key="..\:/Fighting2/app/src/main/res/layout/fragment_camera2_basic.xml" value="0.2390625" />
         <entry key="..\:/Fighting2/app/src/main/res/layout/login.xml" value="0.19655797101449277" />
@@ -46,11 +43,14 @@
         <entry key="..\:/Users/jiseong/Desktop/Fighting2/app/src/main/res/layout/activity_event_edit.xml" value="0.25885416666666666" />
         <entry key="..\:/Users/jiseong/Desktop/Fighting2/app/src/main/res/layout/activity_gallery.xml" value="0.25885416666666666" />
         <entry key="..\:/Users/jiseong/Desktop/Fighting2/app/src/main/res/layout/activity_list.xml" value="0.21920289855072464" />
+        <entry key="..\:/Users/jiseong/Desktop/Fighting2/app/src/main/res/layout/activity_list_picture.xml" value="0.25885416666666666" />
         <entry key="..\:/Users/jiseong/Desktop/Fighting2/app/src/main/res/layout/activity_main.xml" value="0.25885416666666666" />
         <entry key="..\:/Users/jiseong/Desktop/Fighting2/app/src/main/res/layout/activity_main_min.xml" value="0.115625" />
         <entry key="..\:/Users/jiseong/Desktop/Fighting2/app/src/main/res/layout/activity_post.xml" value="0.25885416666666666" />
         <entry key="..\:/Users/jiseong/Desktop/Fighting2/app/src/main/res/layout/activity_week_view.xml" value="0.115625" />
+        <entry key="..\:/Users/jiseong/Desktop/Fighting2/app/src/main/res/layout/activity_write_picture.xml" value="0.25885416666666666" />
         <entry key="..\:/Users/jiseong/Desktop/Fighting2/app/src/main/res/layout/activity_write_post.xml" value="0.25885416666666666" />
+        <entry key="..\:/Users/jiseong/Desktop/Fighting2/app/src/main/res/layout/community.xml" value="0.25885416666666666" />
         <entry key="..\:/Users/jiseong/Desktop/Fighting2/app/src/main/res/layout/custom_comment.xml" value="0.21920289855072464" />
         <entry key="..\:/Users/jiseong/Desktop/Fighting2/app/src/main/res/layout/find_id.xml" value="0.25885416666666666" />
         <entry key="..\:/Users/jiseong/Desktop/Fighting2/app/src/main/res/layout/item_gallery.xml" value="0.115625" />
@@ -64,6 +64,7 @@
         <entry key="..\:/Users/jiseong/Desktop/Fighting2/app/src/main/res/layout/view_contents_text.xml" value="0.25885416666666666" />
         <entry key="..\:/Users/jiseong/Desktop/Fighting2/app/src/main/res/layout/view_loader.xml" value="0.25885416666666666" />
         <entry key="..\:/Users/jiseong/Desktop/Fighting2/app/src/main/res/layout/view_post.xml" value="0.25885416666666666" />
+        <entry key="..\:/Users/jiseong/Desktop/Fighting2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/moapp/app/src/main/res/drawable/rect.xml" value="0.139" />
         <entry key="..\:/moapp/app/src/main/res/drawable/rect_button.xml" value="0.1355" />
         <entry key="..\:/moapp/app/src/main/res/layout/activity_main.xml" value="0.12158054711246201" />

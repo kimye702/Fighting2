@@ -56,8 +56,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
     public void onBindViewHolder(final GalleryViewHolder holder, int position) {
         CardView cardView = holder.cardView;
         ImageView imageView = cardView.findViewById(R.id.imageView);
-        //Glide.with(activity).load(mDataset.get(position)).into(imageView);
-        //이게 문제
+        //Glide.with(activity).load(mDataset.get(position)).override(500).into(imageView);
     }
 
     @Override

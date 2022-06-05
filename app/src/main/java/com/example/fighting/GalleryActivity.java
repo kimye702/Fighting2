@@ -27,7 +27,6 @@ public class GalleryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
-
         if (ContextCompat.checkSelfPermission(GalleryActivity.this,
                 Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -88,6 +87,7 @@ public class GalleryActivity extends AppCompatActivity {
 
         cursor = activity.getContentResolver().query(uri, projection, null, null, null);
         column_index_data = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
+
 
         while (cursor.moveToNext()) {
             PathOfImage = cursor.getString(column_index_data);

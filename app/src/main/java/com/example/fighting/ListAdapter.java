@@ -30,7 +30,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MainViewHolder
     private ArrayList<PostInfo> mDataset;
     private Activity activity;
     private FirebaseHelper firebaseHelper;
-    private ArrayList[] playerArrayListArrayList = new ArrayList[];
+    private ArrayList playerArrayListArrayList = new ArrayList();
     private final int MORE_INDEX = 2;
 
     static class MainViewHolder extends RecyclerView.ViewHolder {

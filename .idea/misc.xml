@@ -11,6 +11,8 @@
         <entry key="..\:/Fighting2/app/src/main/res/drawable/rect.xml" value="0.128" />
         <entry key="..\:/Fighting2/app/src/main/res/drawable/rect_button.xml" value="0.1425" />
         <entry key="..\:/Fighting2/app/src/main/res/layout/activity_camera.xml" value="0.2390625" />
+        <entry key="..\:/Fighting2/app/src/main/res/layout/activity_detail.xml" value="0.25364583333333335" />
+        <entry key="..\:/Fighting2/app/src/main/res/layout/activity_event_edit.xml" value="0.1125" />
         <entry key="..\:/Fighting2/app/src/main/res/layout/activity_gallery.xml" value="0.1322463768115942" />
         <entry key="..\:/Fighting2/app/src/main/res/layout/activity_list.xml" value="0.25364583333333335" />
         <entry key="..\:/Fighting2/app/src/main/res/layout/activity_list_picture.xml" value="0.25364583333333335" />
@@ -19,6 +21,7 @@
         <entry key="..\:/Fighting2/app/src/main/res/layout/activity_map.xml" value="0.25364583333333335" />
         <entry key="..\:/Fighting2/app/src/main/res/layout/activity_post.xml" value="0.12092391304347826" />
         <entry key="..\:/Fighting2/app/src/main/res/layout/activity_register.xml" value="0.1390625" />
+        <entry key="..\:/Fighting2/app/src/main/res/layout/activity_week_view.xml" value="0.25364583333333335" />
         <entry key="..\:/Fighting2/app/src/main/res/layout/activity_write_picture.xml" value="0.1390625" />
         <entry key="..\:/Fighting2/app/src/main/res/layout/activity_write_post.xml" value="0.25364583333333335" />
         <entry key="..\:/Fighting2/app/src/main/res/layout/custom_comment.xml" value="0.264" />

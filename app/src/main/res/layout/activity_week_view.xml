@@ -74,7 +74,6 @@
             android:textAlignment="center"
             android:textSize="16sp"/>
 
-
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -148,7 +147,6 @@
     <ListView
         android:id="@+id/eventListView"
         android:layout_marginRight="20dp"
-        android:textAlignment="viewStart"
         android:layout_marginLeft="20dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -190,7 +188,8 @@
         android:text="일정 완료"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:background="@color/s"/>
+        android:clickable="true"
+        android:background="@color/d"/>
 
 
 </LinearLayout>

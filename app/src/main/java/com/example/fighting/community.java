@@ -2,6 +2,8 @@ package com.example.fighting;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -22,35 +24,64 @@ public class community extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.community);
 
-        Button btn1=(Button)findViewById(R.id.button);
-        Button btn2=(Button)findViewById(R.id.button2);
+//        Button btn1=(Button)findViewById(R.id.button);
+//        Button btn2=(Button)findViewById(R.id.button2);
 
 
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fragmentManager = getSupportFragmentManager();
+//        btn1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                fragmentManager = getSupportFragmentManager();
+//
+//                fragmentA = new ListActivity();
+//
+//                transaction = fragmentManager.beginTransaction();
+//
+//                transaction.replace(R.id.frameLayout, fragmentA).commit();
+//            }
+//        });
+//
+//        btn2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                fragmentManager = getSupportFragmentManager();
+//
+//                fragmentB = new ListPictureActivity();
+//
+//                transaction = fragmentManager.beginTransaction();
+//
+//                transaction.replace(R.id.frameLayout, fragmentB).commit();
+//            }
+//        });
+    }
 
-                fragmentA = new ListActivity();
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_community, menu);
+        return true;
+    }
 
-                transaction = fragmentManager.beginTransaction();
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
 
-                transaction.replace(R.id.frameLayout, fragmentA).commit();
-            }
-        });
+        if (id == R.id.menu_free) {
+            fragmentManager = getSupportFragmentManager();
+            fragmentA = new ListActivity();
+            transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.frameLayout, fragmentA).commit();
 
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fragmentManager = getSupportFragmentManager();
+            return true;
+        }else if (id == R.id.menu_picture) {
+            fragmentManager = getSupportFragmentManager();
+            fragmentB = new ListPictureActivity();
+            transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.frameLayout, fragmentB).commit();
 
-                fragmentB = new ListPictureActivity();
+            return true;
+        }
 
-                transaction = fragmentManager.beginTransaction();
-
-                transaction.replace(R.id.frameLayout, fragmentB).commit();
-            }
-        });
+        return super.onOptionsItemSelected(item);
     }
 
 }

@@ -39,7 +39,7 @@
                 android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:layout_margin="20dp"
-                android:src="@drawable/dog1"
+                android:src="@drawable/dog"
                 app:civ_border_color="@color/colorPrimary"
                 app:civ_border_overlay="true"
                 app:civ_border_width="3dp"

@@ -80,6 +80,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MainViewHolder
         PostInfo postInfo = mDataset.get(position);
         titleTextView.setText(postInfo.getTitle());
 
+        TextView name=cardView.findViewById(R.id.name);
+        name.setText(postInfo.getPublisher());
+
         ReadContentsView readContentsView = cardView.findViewById(R.id.readContentsView);
         LinearLayout contentsLayout = cardView.findViewById(R.id.contentsLayout);
 

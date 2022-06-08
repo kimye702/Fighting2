@@ -1,25 +1,30 @@
 package com.example.fighting;
 
+import static com.example.fighting.Util.isStorageUrl;
+import static com.example.fighting.Util.showToast;
+import static com.example.fighting.Util.storageUrlToName;
+
 import android.app.Activity;
+
 import androidx.annotation.NonNull;
 
-import com.example.fighting.OnPostListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
-import static com.example.fighting.Util.isStorageUrl;
-import static com.example.fighting.Util.showToast;
-import static com.example.fighting.Util.storageUrlToName;
-
 public class FirebaseHelper {
     private Activity activity;
     private OnPostListener onPostListener;
     private int successCount;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+
 
     public FirebaseHelper(Activity activity) {
         this.activity = activity;
@@ -60,22 +65,28 @@ public class FirebaseHelper {
     private void storeDelete(final String id, final PostInfo postInfo) {
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
         if (successCount == 0) {
-            firebaseFirestore.collection("posts").document(id)
-                    .delete()
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            showToast(activity, "게시글을 삭제하였습니다.");
-                            onPostListener.onDelete(postInfo);
-                            //postsUpdate();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            showToast(activity, "게시글을 삭제하지 못하였습니다.");
-                        }
-                    });
+            if(user.getDisplayName().equals(postInfo.getPublisher())){
+                firebaseFirestore.collection("posts").document(postInfo.getId())
+                        .delete()
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                showToast(activity, "게시글을 삭제하였습니다");
+                                onPostListener.onDelete(postInfo);
+                                //postsUpdate();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                showToast(activity, "게시글을 삭제하지 못하였습니다");
+                            }
+                        });
+            }
+
+            else{
+                showToast(activity, "작성자만 글을 삭제할 수 있습니다");
+            }
         }
     }
 }

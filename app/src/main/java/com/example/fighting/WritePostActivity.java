@@ -262,6 +262,7 @@ public class WritePostActivity extends AppCompatActivity {
         } else {
             showToast(WritePostActivity.this, "제목을 입력해주세요.");
         }
+        finish();
     }
 
     private void storeUpload(DocumentReference documentReference, final PostInfo postInfo) {

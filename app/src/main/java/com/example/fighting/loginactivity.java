@@ -33,7 +33,6 @@ public class loginactivity extends AppCompatActivity {
 
 
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.Theme_Fighting);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 

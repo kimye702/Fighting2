@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListPictureActivity">
+    tools:context=".ListPictureActivity"
+    android:layout_margin="10dp"
+    >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -18,8 +20,10 @@
         android:layout_height="80dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="11dp"
         android:layout_marginBottom="10dp"
-        android:clickable="true"/>
+        android:background="@color/colorPrimary"
+        android:clickable="true"
+        android:src="@drawable/ic_baseline_add_24" />
 
 </RelativeLayout>

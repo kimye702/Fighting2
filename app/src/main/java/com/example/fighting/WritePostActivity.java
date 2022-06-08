@@ -1,18 +1,26 @@
 package com.example.fighting;
 
+import static com.example.fighting.Util.GALLERY_IMAGE;
+import static com.example.fighting.Util.INTENT_MEDIA;
+import static com.example.fighting.Util.INTENT_PATH;
+import static com.example.fighting.Util.isImageFile;
+import static com.example.fighting.Util.isStorageUrl;
+import static com.example.fighting.Util.showToast;
+import static com.example.fighting.Util.storageUrlToName;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -32,14 +40,6 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
-
-import static com.example.fighting.Util.GALLERY_IMAGE;
-import static com.example.fighting.Util.INTENT_MEDIA;
-import static com.example.fighting.Util.INTENT_PATH;
-import static com.example.fighting.Util.isImageFile;
-import static com.example.fighting.Util.isStorageUrl;
-import static com.example.fighting.Util.showToast;
-import static com.example.fighting.Util.storageUrlToName;
 
 public class WritePostActivity extends AppCompatActivity {
     private static final String TAG = "WritePostActivity";
@@ -242,7 +242,7 @@ public class WritePostActivity extends AppCompatActivity {
                                             successCount--;
                                             contentsList.set(index, uri.toString());
                                             if (successCount == 0) {
-                                                PostInfo postInfo = new PostInfo(title, contentsList, formatList, user.getUid(), date);
+                                                PostInfo postInfo = new PostInfo(title, contentsList, formatList, user.getDisplayName(), date);
                                                 storeUpload(documentReference, postInfo);
                                             }
                                         }
@@ -257,7 +257,7 @@ public class WritePostActivity extends AppCompatActivity {
                 }
             }
             if (successCount == 0) {
-                storeUpload(documentReference, new PostInfo(title, contentsList, formatList, user.getUid(), date));
+                storeUpload(documentReference, new PostInfo(title, contentsList, formatList, user.getDisplayName(), date));
             }
         } else {
             showToast(WritePostActivity.this, "제목을 입력해주세요.");

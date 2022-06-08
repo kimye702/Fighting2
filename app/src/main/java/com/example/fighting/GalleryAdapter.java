@@ -13,8 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-
 import java.util.ArrayList;
 
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder> {
@@ -56,7 +54,8 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
     public void onBindViewHolder(final GalleryViewHolder holder, int position) {
         CardView cardView = holder.cardView;
         ImageView imageView = cardView.findViewById(R.id.imageView);
-        //Glide.with(activity).load(mDataset.get(position)).override(500).into(imageView);
+
+        GlideApp.with(activity).load(mDataset.get(position)).centerCrop().override(500).into(imageView);
     }
 
     @Override

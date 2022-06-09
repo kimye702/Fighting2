@@ -69,7 +69,7 @@
         <activity android:name=".PostActivity"
             android:label="게시글 작성"/>
         <activity android:name=".community"
-            android:label="게시글 작성"/>
+            android:label="게시판"/>
     </application>
 
 </manifest>

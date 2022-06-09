@@ -76,7 +76,12 @@ public class findidactivity extends AppCompatActivity {
                         String email=snapshot.child("emailId").getValue(String.class);
                         String strEmail=find_email.getText().toString();
 
-                        if(email.equals(strEmail)){
+                        if(!snapshot.exists()){
+                            Toast.makeText(findidactivity.this, "존재하지 않는 닉네임입니다", Toast.LENGTH_SHORT).show();
+                        }
+
+
+                        else if(email.equals(strEmail)){
                             mFirebaseAuth = FirebaseAuth.getInstance();
                             mFirebaseAuth.sendPasswordResetEmail(strEmail.trim())
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {

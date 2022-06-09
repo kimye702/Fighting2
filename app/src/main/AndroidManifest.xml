@@ -31,7 +31,7 @@
             android:value="AIzaSyBfDOhTHb462mtX0MEwk7aaPBFkKhJzAoI" />
 
         <activity
-            android:name=".Splash"
+            android:name=".loginactivity"
             android:exported="true"
             android:theme="@style/SplashTheme">
         ````
@@ -42,7 +42,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".loginactivity" />
         <activity android:name=".makeidactivity"
             android:label="회원가입"/>
         <activity android:name=".findidactivity"

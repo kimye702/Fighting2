@@ -63,7 +63,7 @@ public class PostActivity extends AppCompatActivity {
                 return true;
             case R.id.modify:
                 if(postInfo.getPublisher().equals(user.getDisplayName())){
-                    myStartActivity(WritePostActivity.class, postInfo);
+                    myStartActivity(WritePictureActivity.class, postInfo);
                     return true;
                 }
                 else{

@@ -118,7 +118,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MainViewHolder
                 switch (menuItem.getItemId()) {
                     case R.id.modify:
                         if(user.getDisplayName().equals(mDataset.get(position).getPublisher())){
-                            myStartActivity(WritePostActivity.class, mDataset.get(position));
+                            myStartActivity(WritePictureActivity.class, mDataset.get(position));
                             return true;
                         }
                         else{

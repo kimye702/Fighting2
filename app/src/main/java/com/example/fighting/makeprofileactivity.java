@@ -78,7 +78,7 @@ public class makeprofileactivity extends AppCompatActivity{
         if(requestCode == GALLERY_CODE){
             file = data.getData();
             StorageReference storageReference = storage.getReference();
-            StorageReference mountainImagesRef = storageReference.child("users/"+user.getUid()+"/profileImage.jpg");
+            StorageReference mountainImagesRef = storageReference.child("users/"+user.getDisplayName()+"/profileImage.jpg");
             UploadTask uploadTask = mountainImagesRef.putFile(file);
             try{
                 InputStream in = getContentResolver().openInputStream(data.getData());

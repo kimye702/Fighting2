@@ -32,13 +32,14 @@ public class profileactivity extends AppCompatActivity {
     private FirebaseAuth mFirebaseAuth; //파이어베이스 인증
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     FirebaseStorage storage = FirebaseStorage.getInstance();
+    StorageReference storageRef = storage.getReference();
     private DatabaseReference mDatabaseRef;
     private ImageView imageView;
     private TextView name, email;
     private Button logout, delete;
     FirebaseDatabase mdatabase=FirebaseDatabase.getInstance();
 
-    StorageReference storageRef = storage.getReference();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,7 @@ public class profileactivity extends AppCompatActivity {
         logout=(Button)findViewById(R.id.logout);
         delete=(Button)findViewById(R.id.delete);
 
-        storageRef.child("users/"+user.getUid()+"/profileImage.jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        storageRef.child("users/"+user.getDisplayName()+"/profileImage.jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 Glide.with(profileactivity.this).load(uri).circleCrop().into(imageView);
@@ -90,7 +91,7 @@ public class profileactivity extends AppCompatActivity {
                                 mDatabaseRef=mdatabase.getReference("Fighting2").child("UserAccount").child(user.getDisplayName());
                                 mDatabaseRef.removeValue();
 
-                                StorageReference desertRef = storageRef.child("users").child(user.getUid()+"/").child("profileImage.jpg");
+                                StorageReference desertRef = storageRef.child("users").child(user.getDisplayName()+"/").child("profileImage.jpg");
                                 desertRef.delete();
 
                                 user.delete()

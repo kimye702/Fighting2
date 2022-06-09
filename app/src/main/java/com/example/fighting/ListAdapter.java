@@ -2,6 +2,7 @@ package com.example.fighting;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,10 +16,17 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MainViewHolder> {
     private ArrayList<PostInfo> mDataset;
@@ -27,6 +35,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MainViewHolder
     private ArrayList playerArrayListArrayList = new ArrayList();
     private final int MORE_INDEX = 2;
     private FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
+    FirebaseAuth mFirebaseAuth=FirebaseAuth.getInstance();
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+    StorageReference storageRef = storage.getReference();
 
     static class MainViewHolder extends RecyclerView.ViewHolder {
         CardView cardView;
@@ -87,6 +98,19 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MainViewHolder
 
         TextView name=cardView.findViewById(R.id.name);
         name.setText(postInfo.getPublisher());
+
+        CircleImageView image=cardView.findViewById(R.id.image);
+        storageRef.child("users/"+postInfo.getPublisher()+"/"+"profileImage.jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(activity).load(uri).circleCrop().into(image);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                image.setImageResource(R.drawable.dog);
+            }
+        });
 
         ReadContentsView readContentsView = cardView.findViewById(R.id.readContentsView);
         LinearLayout contentsLayout = cardView.findViewById(R.id.contentsLayout);

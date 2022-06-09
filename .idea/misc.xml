@@ -12,6 +12,7 @@
         <entry key="..\:/Fighting2/app/src/main/res/drawable/rect.xml" value="0.128" />
         <entry key="..\:/Fighting2/app/src/main/res/drawable/rect_button.xml" value="0.1425" />
         <entry key="..\:/Fighting2/app/src/main/res/drawable/rect_white.xml" value="0.1705" />
+        <entry key="..\:/Fighting2/app/src/main/res/drawable/splash.xml" value="0.125" />
         <entry key="..\:/Fighting2/app/src/main/res/layout/activity_camera.xml" value="0.2390625" />
         <entry key="..\:/Fighting2/app/src/main/res/layout/activity_detail.xml" value="0.25364583333333335" />
         <entry key="..\:/Fighting2/app/src/main/res/layout/activity_event_edit.xml" value="0.1125" />
@@ -48,8 +49,6 @@
         <entry key="..\:/Fighting2/app/src/main/res/menu/menu_community.xml" value="0.1140625" />
         <entry key="..\:/Fighting2/app/src/main/res/menu/post.xml" value="0.25364583333333335" />
         <entry key="..\:/Fighting2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1705" />
-        <entry key="..\:/Users/82106/Desktop/Fighting2/app/src/main/res/drawable/splash.xml" value="0.1" />
-        <entry key="..\:/Users/82106/Desktop/Fighting2/app/src/main/res/layout/activity_map.xml" value="0.1" />
         <entry key="..\:/Users/a9565/AndroidStudioProjects/Fighting2/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.14" />
         <entry key="..\:/Users/a9565/AndroidStudioProjects/Fighting2/app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.14" />
         <entry key="..\:/Users/a9565/AndroidStudioProjects/Fighting2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14" />

@@ -44,7 +44,7 @@ public class FirebaseHelper {
             String contents = contentsList.get(i);
             if (isStorageUrl(contents)) {
                 successCount++;
-                StorageReference desertRef = storageRef.child("posts/" + id + "/" + storageUrlToName(contents));
+                StorageReference desertRef = storageRef.child("pictures" + id + "/" + storageUrlToName(contents));
                 desertRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -66,7 +66,7 @@ public class FirebaseHelper {
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
         if (successCount == 0) {
             if(user.getDisplayName().equals(postInfo.getPublisher())){
-                firebaseFirestore.collection("posts").document(postInfo.getId())
+                firebaseFirestore.collection("pictures").document(postInfo.getId())
                         .delete()
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
@@ -85,7 +85,7 @@ public class FirebaseHelper {
             }
 
             else{
-                showToast(activity, "작성자만 글을 삭제할 수 있습니다");
+                showToast(activity, "작성자만 글을 삭제하거나 수정할 수 있습니다");
             }
         }
     }

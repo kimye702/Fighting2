@@ -2,8 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -23,7 +24,9 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="제목"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/contentsLayout"

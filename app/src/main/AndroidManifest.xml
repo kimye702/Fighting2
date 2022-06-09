@@ -54,10 +54,6 @@
             android:label="산책"/>
         <activity android:name=".profileactivity"
             android:label="내 프로필"/>
-        <activity android:name=".RegisterActivity"
-            android:label="글 쓰기"/>
-        <activity android:name=".DetailActivity"
-            android:label="게시글"/>
         <activity android:name=".GalleryActivity"
             android:label="놀아주개"/>
         <activity android:name=".MainActivity_min"

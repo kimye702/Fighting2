@@ -15,6 +15,9 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.ArrayList;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MainViewHolder> {
@@ -23,6 +26,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MainViewHolder
     private FirebaseHelper firebaseHelper;
     private ArrayList playerArrayListArrayList = new ArrayList();
     private final int MORE_INDEX = 2;
+    private FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
 
     static class MainViewHolder extends RecyclerView.ViewHolder {
         CardView cardView;
@@ -42,6 +46,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MainViewHolder
     public void setOnPostListener(OnPostListener onPostListener){
         firebaseHelper.setOnPostListener(onPostListener);
     }
+
 
     @Override
     public int getItemViewType(int position){
@@ -112,8 +117,13 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MainViewHolder
             public boolean onMenuItemClick(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.modify:
-                        myStartActivity(WritePostActivity.class, mDataset.get(position));
-                        return true;
+                        if(user.getDisplayName().equals(mDataset.get(position).getPublisher())){
+                            myStartActivity(WritePostActivity.class, mDataset.get(position));
+                            return true;
+                        }
+                        else{
+
+                        }
                     case R.id.delete:
                         firebaseHelper.storageDelete(mDataset.get(position));
                         return true;

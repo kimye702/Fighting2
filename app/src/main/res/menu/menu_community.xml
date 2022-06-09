@@ -7,7 +7,7 @@
     <item
         android:id="@+id/menu_free"
         android:orderInCategory="100"
-        android:title="자유 게시판"
+        android:title="일기장"
         app:showAsAction="never" />
     <item
         android:id="@+id/menu_picture"

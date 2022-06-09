@@ -81,7 +81,6 @@
             >
             </com.example.fighting.ReadContentsView>
 
-
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

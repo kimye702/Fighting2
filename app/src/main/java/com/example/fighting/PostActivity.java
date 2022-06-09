@@ -6,27 +6,20 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-
-import com.bumptech.glide.Glide;
-import com.example.fighting.FirebaseHelper;
-import com.example.fighting.PostInfo;
-import com.example.fighting.R;
-import com.example.fighting.OnPostListener;
-import com.example.fighting.ContentsItemView;
-import com.example.fighting.ReadContentsView;
-
-import static com.example.fighting.Util.INTENT_PATH;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class PostActivity extends AppCompatActivity {
     private PostInfo postInfo;
     private FirebaseHelper firebaseHelper;
     private ReadContentsView readContentsView;
     private LinearLayout contentsLayout;
+    private FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,8 +62,13 @@ public class PostActivity extends AppCompatActivity {
                 firebaseHelper.storageDelete(postInfo);
                 return true;
             case R.id.modify:
-                myStartActivity(WritePostActivity.class, postInfo);
-                return true;
+                if(postInfo.getPublisher().equals(user.getDisplayName())){
+                    myStartActivity(WritePostActivity.class, postInfo);
+                    return true;
+                }
+                else{
+                    Toast.makeText(PostActivity.this, "작성자만 글을 수정할 수 있습니다", Toast.LENGTH_SHORT).show();
+                }
             default:
                 return super.onOptionsItemSelected(item);
         }

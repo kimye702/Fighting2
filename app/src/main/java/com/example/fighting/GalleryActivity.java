@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class GalleryActivity extends AppCompatActivity {
 
@@ -94,6 +95,8 @@ public class GalleryActivity extends AppCompatActivity {
 
             listOfAllImages.add(PathOfImage);
         }
+        Collections.reverse(listOfAllImages);
+
         return listOfAllImages;
     }
 }

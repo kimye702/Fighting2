@@ -71,7 +71,7 @@ public class FirebaseHelper {
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                showToast(activity, "게시글을 삭제하였습니다");
+                                showToast(activity, "게시글을 삭제했습니다");
                                 onPostListener.onDelete(postInfo);
                                 //postsUpdate();
                             }

@@ -19,6 +19,13 @@
             android:orientation="vertical"
             android:padding="10dp">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="일기장은 수정 및 삭제가 불가능합니다"
+                android:textSize="20sp" />
+
             <EditText
                 android:id="@+id/titleEditText"
                 android:layout_width="match_parent"
@@ -38,14 +45,12 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    >
+                    android:orientation="vertical">
 
                     <include
                         layout="@layout/view_contents_edit_text"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        />
+                        android:layout_height="wrap_content" />
 
                 </LinearLayout>
 

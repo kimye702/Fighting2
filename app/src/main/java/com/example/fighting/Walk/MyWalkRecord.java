@@ -1,10 +1,12 @@
-package com.example.fighting;
+package com.example.fighting.Walk;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.example.fighting.R;
 
 // 나의 산책일지 프래그먼트로 띄우기 위한 액티비티
 public class MyWalkRecord extends AppCompatActivity {

@@ -1,7 +1,9 @@
-package com.example.fighting;
+package com.example.fighting.Walk;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Trace;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.fighting.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -108,8 +111,8 @@ public class WalkRecordView extends Fragment {
             }
         });
 
-        traceUpdate(true);
-        Log.e("로그", "메인");
+//        traceUpdate(true);
+//        Log.e("로그", "메인");
 
         return view;
     }
@@ -124,20 +127,34 @@ public class WalkRecordView extends Fragment {
         super.onDetach();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.e("로그", "resume");
+        traceUpdate(true);
+    }
 
     OnTraceListener onTraceListener = new OnTraceListener() {
         @Override
         public void onDelete() {
             traceUpdate(true);
-            Log.e("로그", "삭제 성공");
+            Log.e("로그", "WalkRecordView 삭제 성공");
         }
         @Override
-        public void onModify() {
-            Log.e("로그: ","수정 성공");
+        public void onModify(int position) {
+            Log.e("로그: ","WalkRecordView 수정 성공");
         }
     };
 
-    private void traceUpdate(boolean ok) {
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == 123) {
+//
+//        }
+//    }
+
+    public void traceUpdate(boolean ok) {
         updating = true;
         if(ok){
             count = 0; time = 0; dist = 0;
@@ -202,6 +219,9 @@ public class WalkRecordView extends Fragment {
                         updating = false;
                     }
                 });
+    }
+
+    private void startActivityForResult(Intent intent) {
     }
 }
 

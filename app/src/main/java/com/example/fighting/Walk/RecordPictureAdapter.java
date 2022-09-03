@@ -1,4 +1,4 @@
-package com.example.fighting;
+package com.example.fighting.Walk;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.fighting.R;
 
 import java.util.ArrayList;
 
@@ -53,9 +54,9 @@ public class RecordPictureAdapter extends RecyclerView.Adapter<RecordPictureAdap
             @Override
             public void onClick(View v) {
                 startToast("뷰 클릭 "+ viewType);
+                // 여기서 사진 더 크게 보일수 있으면 좋겠음
             }
         });
-
 
         return customViewHolder;
     }

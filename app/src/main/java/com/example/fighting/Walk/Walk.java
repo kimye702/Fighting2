@@ -1,4 +1,4 @@
-package com.example.fighting;
+package com.example.fighting.Walk;
 // https://ebbnflow.tistory.com/177 참고
 
 import android.Manifest;
@@ -37,6 +37,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
+import com.example.fighting.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -127,7 +128,6 @@ public class Walk extends AppCompatActivity implements OnMapReadyCallback, Activ
 
     // 카메라 부분
     final private static String TAG1 = "camera";
-    private Button btn_photo;
     final static int TAKE_PICTURE = 1;
 
     // 경로 변수, 사진촬영 요청 변수 생성
@@ -159,7 +159,7 @@ public class Walk extends AppCompatActivity implements OnMapReadyCallback, Activ
         Button resetBtn = findViewById(R.id.reset_btn);
 
         // 촬영 버튼과 이미지 띄울 이미지뷰
-        btn_photo = findViewById(R.id.btn_photo);
+        Button btn_photo = findViewById(R.id.btn_photo);
         // iv_photo = findViewById(R.id.iv_photo);
 
         Button btn_trace = findViewById(R.id.btn_trace);
@@ -917,6 +917,10 @@ public class Walk extends AppCompatActivity implements OnMapReadyCallback, Activ
                     @Override
                     public void onSuccess(Void aVoid) {
                         startToast("산책정보 등록 성공");
+//                        // 수정한 부분 -> 오류나서 종료됨
+//                        WalkRecordView tf = (WalkRecordView) getSupportFragmentManager().findFragmentById(R.id.frame_record);
+//                        assert tf != null;
+//                        tf.traceUpdate(true);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

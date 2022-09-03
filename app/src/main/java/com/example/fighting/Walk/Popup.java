@@ -1,4 +1,4 @@
-package com.example.fighting;
+package com.example.fighting.Walk;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
+
+import com.example.fighting.R;
 
 // 산책 끝났을때 팝업띄우는 액티비티
 public class Popup extends Activity {

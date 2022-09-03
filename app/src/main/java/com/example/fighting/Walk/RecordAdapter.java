@@ -1,4 +1,4 @@
-package com.example.fighting;
+package com.example.fighting.Walk;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,6 +14,9 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.fighting.PostInfo;
+import com.example.fighting.R;
+import com.example.fighting.WritePictureActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
@@ -123,6 +126,11 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.CustomView
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
+//                    case R.id.change:
+//                        firebaseSupporter.change(position);
+//                        Log.e("로그", "수정 실행1");
+//                        return true;
+
                     case R.id.vanish:
                         firebaseSupporter.storageDelete(mDataset.get(position));
                         Log.e("로그", "삭제 실행1");
@@ -134,8 +142,14 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.CustomView
         });
 
         MenuInflater inflater = popup.getMenuInflater();
-        inflater.inflate(R.menu.trace, popup.getMenu());
+        inflater.inflate(R.menu.delete, popup.getMenu());
         popup.show();
     }
+
+//    private void myStartActivity(Class c, TraceInfo traceInfo) {
+//        Intent intent = new Intent(activity, c);
+//        intent.putExtra("traceInfo", traceInfo);
+//        activity.startActivityForResult(intent, 123);
+//    }
 
 }

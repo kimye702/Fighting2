@@ -1,7 +1,6 @@
-package com.example.fighting;
+package com.example.fighting.Walk;
 
 import static com.example.fighting.Util.isPicStorageUrl;
-import static com.example.fighting.Util.isStorageUrl;
 import static com.example.fighting.Util.showToast;
 import static com.example.fighting.Util.storageUrlToName;
 
@@ -85,7 +84,8 @@ public class FirebaseSupporter {
                         @Override
                         public void onSuccess(Void aVoid) {
                             showToast(activity, "db 문서 삭제 성공");
-                            onTraceListener.onDelete();
+                            if(onTraceListener!=null)
+                                onTraceListener.onDelete();
                             //traceUpdate();
                         }
                     })
@@ -96,4 +96,8 @@ public class FirebaseSupporter {
                     });
         }
     }
+
+//    public void change(int position){
+//        onTraceListener.onModify(position);
+//    }
 }

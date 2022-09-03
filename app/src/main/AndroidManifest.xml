@@ -57,7 +57,7 @@
             android:label="놀아주개"/>
         <activity android:name=".makeprofileactivity"
             android:label="프로필 설정"/>
-        <activity android:name=".Walk"
+        <activity android:name=".Walk.Walk"
             android:label="산책"/>
         <activity android:name=".profileactivity"
             android:label="내 프로필"/>
@@ -77,12 +77,14 @@
             android:label="게시글 작성"/>
         <activity android:name=".community"
             android:label="게시판"/>
-        <activity android:name=".DetailRecord"
+        <activity android:name=".Walk.DetailRecord"
             android:label="상세 기록"/>
-        <activity android:name=".MyWalkRecord"
+        <activity android:name=".Walk.MyWalkRecord"
             android:label="나의 산책 일지"/>
-        <activity android:name=".Popup"
+        <activity android:name=".Walk.Popup"
             android:theme="@android:style/Theme.Dialog" /> // 팝업으로 띄우려면 themem
+        <activity android:name=".Walk.ModifyRecordActivity"
+            android:label="상세 기록"/>
 
         // 카메라 사용위해
        <provider

@@ -1,4 +1,4 @@
-package com.example.fighting;
+package com.example.fighting.Walk;
 
 import java.io.Serializable;
 import java.util.ArrayList;

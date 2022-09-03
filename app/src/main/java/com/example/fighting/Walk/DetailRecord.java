@@ -1,13 +1,25 @@
-package com.example.fighting;
+package com.example.fighting.Walk;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.fighting.FirebaseHelper;
+import com.example.fighting.OnPostListener;
+import com.example.fighting.PostActivity;
+import com.example.fighting.PostInfo;
+import com.example.fighting.R;
+import com.example.fighting.WritePictureActivity;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
@@ -21,6 +33,7 @@ public class DetailRecord extends AppCompatActivity{
     private ArrayList<String> pictures;
     private RecyclerView recyclerView;
     private RecordPictureAdapter walkPictureAdapter;
+    private FirebaseSupporter firebaseSupporter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +48,8 @@ public class DetailRecord extends AppCompatActivity{
         traceInfo = (TraceInfo) getIntent().getSerializableExtra("traceInfo");
         pictures = traceInfo.getPictures();
 
+        firebaseSupporter = new FirebaseSupporter(this);
+
         // 리사이클러뷰 연결
         // https://blog.hexabrain.net/363 참고
         recyclerView = findViewById(R.id.rv_pictures);
@@ -46,21 +61,67 @@ public class DetailRecord extends AppCompatActivity{
 
         recyclerView.setAdapter(walkPictureAdapter);
 
+        setOnTraceListener(onTraceListener);
+
         uiUpdate();
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+//        Log.e("로그", "requestCode : " + requestCode);
+//        Log.e("로그", "resultCode : " + resultCode);
+//        Log.e("로그", "Activity.RESULT_OK : " + RESULT_OK);
         switch (requestCode) {
             case 0:
                 if (resultCode == Activity.RESULT_OK) {
                     traceInfo = (TraceInfo) data.getSerializableExtra("traceInfo");
                     uiUpdate();
+//                    Log.e("로그", "uiUpdate  "+traceInfo.getContents());
                 }
                 break;
         }
     }
+
+    public void setOnTraceListener(OnTraceListener onTraceListener){
+        firebaseSupporter.setOnTraceListener(onTraceListener);
+    }
+
+    OnTraceListener onTraceListener = new OnTraceListener() {
+        @Override
+        public void onDelete() {
+            finish();
+            Log.e("로그", "DetailRecord 삭제 성공");
+        }
+        @Override
+        public void onModify(int position) {
+            Log.e("로그: ","DetailRecord 수정 성공");
+        }
+    };
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.trace, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.vanish:
+                firebaseSupporter.storageDelete(traceInfo);
+//                finish();
+                return true;
+
+            case R.id.change:
+                myStartActivity(ModifyRecordActivity.class, traceInfo);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 
     private void uiUpdate(){
         String end_date = new SimpleDateFormat("yyyy/MM/dd").format(traceInfo.getCreatedAt());
@@ -105,6 +166,12 @@ public class DetailRecord extends AppCompatActivity{
         tv_contents.setText(traceInfo.getContents());
 
         walkPictureAdapter.notifyDataSetChanged();
+    }
+
+    private void myStartActivity(Class c, TraceInfo traceInfo) {
+        Intent intent = new Intent(this, c);
+        intent.putExtra("traceInfo", traceInfo);
+        startActivityForResult(intent, 0);
     }
 
 }

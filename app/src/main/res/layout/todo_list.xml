@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".MainActivity2" >
+        tools:context=".Calendar.MainActivity2" >
 
         <TextView
             android:id="@+id/textView"
@@ -59,6 +59,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:src="@drawable/doggy" />
+            android:src="@drawable/dog" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

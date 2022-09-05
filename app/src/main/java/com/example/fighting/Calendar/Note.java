@@ -1,4 +1,4 @@
-package com.example.fighting;
+package com.example.fighting.Calendar;
 
 public class Note {
     int _id;

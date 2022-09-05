@@ -1,4 +1,4 @@
-package com.example.fighting;
+package com.example.fighting.Calendar;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+
+import com.example.fighting.R;
 
 public class ToDoActivity extends AppCompatActivity {
     private TextView todo_day;
@@ -32,7 +34,7 @@ public class ToDoActivity extends AppCompatActivity {
         Intent intent = getIntent();
         date_str = intent.getStringExtra("str");
         todo_day.setText(date_str);
-        mainFragment = new com.example.whynot.MainFragment2();
+        mainFragment = new com.example.fighting.Calendar.MainFragment2();
 
         //getSupportFragmentManager 을 이용하여 이전에 만들었던 **FrameLayout**에 `fragment_main.xml`이 추가
         getSupportFragmentManager().beginTransaction().replace(R.id.container, mainFragment).commit();

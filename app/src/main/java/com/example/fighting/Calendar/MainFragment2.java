@@ -1,4 +1,4 @@
-package com.example.fighting;
+package com.example.fighting.Calendar;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.example.fighting.R;
 
 import java.util.ArrayList;
 

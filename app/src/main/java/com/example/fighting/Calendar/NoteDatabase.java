@@ -1,4 +1,4 @@
-package com.example.fighting;
+package com.example.fighting.Calendar;
 
 import android.content.Context;
 import android.database.Cursor;

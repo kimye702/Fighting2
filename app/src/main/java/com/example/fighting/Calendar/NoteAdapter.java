@@ -1,4 +1,4 @@
-package com.example.fighting;
+package com.example.fighting.Calendar;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.fighting.R;
 
 import java.util.ArrayList;
 

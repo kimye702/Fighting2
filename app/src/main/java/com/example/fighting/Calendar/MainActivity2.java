@@ -1,4 +1,4 @@
-package com.example.fighting;
+package com.example.fighting.Calendar;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.example.fighting.R;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.DayViewDecorator;
 import com.prolificinteractive.materialcalendarview.DayViewFacade;
@@ -42,7 +43,7 @@ public class MainActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
         calendarView = findViewById(R.id.calendarview);
         context = getApplicationContext();
         // 첫 시작 요일이 월요일이 되도록 설정
@@ -59,7 +60,7 @@ public class MainActivity2 extends AppCompatActivity {
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
 
                 String str = date.getDate().toString();
-                Intent intent = new Intent(MainActivity2.this, com.example.whynot.ToDoActivity.class);
+                Intent intent = new Intent(MainActivity2.this, com.example.fighting.Calendar.ToDoActivity.class);
                 intent.putExtra("str", str);
                 startActivity(intent);
             }

@@ -554,10 +554,10 @@ public class Walk extends AppCompatActivity implements OnMapReadyCallback, Activ
 
         currentMarker = mMap.addMarker(markerOptions);
 
-        if(walkState){
-            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLng(currentLatLng);
-            mMap.moveCamera(cameraUpdate);
-        }
+        //if(walkState){
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLng(currentLatLng);
+        mMap.moveCamera(cameraUpdate);
+        //}
     }
 
     public void setDefaultLocation() {

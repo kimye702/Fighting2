@@ -132,12 +132,11 @@
 
             <Button
                 android:id="@+id/btn_photo"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginHorizontal="10dp"
-                android:text="촬영"
-                android:textSize="14sp"
-                android:backgroundTint="#FFCFAB8D" />
+                android:backgroundTint="#FFCFAB8D"
+                android:background="@drawable/camera" />
 
 
     <!--        <ImageButton-->

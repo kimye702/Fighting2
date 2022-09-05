@@ -1,8 +1,6 @@
 package com.example.fighting;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -15,16 +13,21 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
-import java.io.InputStream;
 
 public class makeprofileactivity extends AppCompatActivity{
 
@@ -34,10 +37,16 @@ public class makeprofileactivity extends AppCompatActivity{
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     FirebaseStorage storage = FirebaseStorage.getInstance();
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("Fighting2");
+
+    public StorageReference storageRef=storage.getReference();
+
 
     private final int GALLERY_CODE = 10;
     private ImageView profile_image;
     Uri file, filePath;
+    int flag=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -60,7 +69,13 @@ public class makeprofileactivity extends AppCompatActivity{
         profile_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                profileUpdate();
+                if(flag==0){
+                    Toast.makeText(makeprofileactivity.this, "프로필 사진을 등록해주세요", Toast.LENGTH_SHORT);
+                }
+                else if(flag==1){
+                    profileUpdate();
+                }
+
             }
         });
 
@@ -73,33 +88,50 @@ public class makeprofileactivity extends AppCompatActivity{
     }
 
     @Override
-    protected void onActivityResult(int requestCode, final int resultCode, final Intent data){
+    protected void onActivityResult(int requestCode, final int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == GALLERY_CODE){
+        if (requestCode == GALLERY_CODE) {
             file = data.getData();
-            StorageReference storageReference = storage.getReference();
-            StorageReference mountainImagesRef = storageReference.child("users/"+user.getDisplayName()+"/profileImage.jpg");
-            UploadTask uploadTask = mountainImagesRef.putFile(file);
-            try{
-                InputStream in = getContentResolver().openInputStream(data.getData());
-                Bitmap img = BitmapFactory.decodeStream(in);
-                in.close();
-                profile_image.setImageBitmap(img);
-            }catch (Exception e){
-                e.printStackTrace();
-            }
 
-            uploadTask.addOnFailureListener(new OnFailureListener() {
+            StorageReference ref = storageRef.child("users/"+user.getDisplayName()+"/profileImage.jpg");
+            UploadTask uploadTask = ref.putFile(file);
+
+            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                 @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(makeprofileactivity.this, "사진 등록 실패! 다시 시도해주세요", Toast.LENGTH_SHORT).show();
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                    if (!task.isSuccessful()) {
+                        throw task.getException();
+                    }
+                    return ref.getDownloadUrl();
                 }
-            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
                 @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Toast.makeText(makeprofileactivity.this, "사진 등록 성공", Toast.LENGTH_SHORT).show();
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful()) {
+                        Uri downloadUri = task.getResult();
+                        String imageurl = downloadUri.toString();
+                        Glide.with(makeprofileactivity.this).load(imageurl).circleCrop().into(profile_image);
+                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                .setPhotoUri(downloadUri)
+                                .build();
+
+                        user.updateProfile(profileUpdates)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                        }
+                                    }
+                                });
+                        myRef.child("UserAccount").child(user.getDisplayName()).child("image").setValue(imageurl);
+                        flag=1;
+                    } else {
+                        // Handle failures
+                        // ...
+                    }
                 }
             });
+
         }
     }
 

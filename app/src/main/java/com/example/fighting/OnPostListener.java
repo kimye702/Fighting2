@@ -1,6 +1,6 @@
 package com.example.fighting;
 
 public interface OnPostListener {
-    void onDelete(PostInfo postInfo);
+    void onDelete(y_postInfo postInfo);
     void onModify();
 }

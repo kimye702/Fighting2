@@ -7,21 +7,16 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.fighting.FirebaseHelper;
-import com.example.fighting.OnPostListener;
-import com.example.fighting.PostActivity;
-import com.example.fighting.PostInfo;
 import com.example.fighting.R;
-import com.example.fighting.WritePictureActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+
 
 // 상세 기록 화면 담당하는 액티비티 + RecordPictureAdapter 사용
 public class DetailRecord extends AppCompatActivity{

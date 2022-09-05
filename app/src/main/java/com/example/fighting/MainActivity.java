@@ -6,16 +6,11 @@ import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.fighting.Calendar.MainActivity2;
 import com.example.fighting.Walk.Walk;
 
 public class MainActivity extends AppCompatActivity {
-    private FragmentManager fragmentManager;
-    private ListActivity listActivity;
-    private FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +25,10 @@ public class MainActivity extends AppCompatActivity {
         community.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), community.class);
+                Intent intent = new Intent(getApplicationContext(), y_communityMain.class);
                 startActivity(intent);
             }
+
         });
 
         calendar.setOnClickListener(new View.OnClickListener() {

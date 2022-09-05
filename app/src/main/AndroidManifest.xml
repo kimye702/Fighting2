@@ -61,22 +61,22 @@
             android:label="산책"/>
         <activity android:name=".profileactivity"
             android:label="내 프로필"/>
-        <activity android:name=".GalleryActivity"
-            android:label="놀아주개"/>
         <activity android:name=".MainActivity_min"
             android:label="캘린더"/>
         <activity android:name=".WeekViewActivity"
             android:label="캘린더"/>
         <activity android:name=".EventEditActivity"
             android:label="캘린더"/>
-        <activity android:name=".WritePostActivity"
-            android:label="게시글 작성"/>
-        <activity android:name=".WritePictureActivity"
-            android:label="사진게시글 작성"/>
-        <activity android:name=".PostActivity"
-            android:label="게시글 작성"/>
-        <activity android:name=".community"
-            android:label="게시판"/>
+        <activity android:name=".y_writePost"
+            android:label="캘린더"/>
+        <activity android:name=".y_communityMain"
+            android:label="캘린더"/>
+        <activity android:name=".y_post"
+            android:label="캘린더"/>
+        <activity android:name=".y_modifyPost"
+            android:label="캘린더"/>
+
+
         <activity android:name=".Walk.DetailRecord"
             android:label="상세 기록"/>
         <activity android:name=".Walk.MyWalkRecord"

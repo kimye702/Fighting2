@@ -85,6 +85,7 @@
             android:theme="@android:style/Theme.Dialog" /> // 팝업으로 띄우려면 themem
         <activity android:name=".Walk.ModifyRecordActivity"
             android:label="상세 기록"/>
+        <activity android:name=".ToDoActivity"/>
 
         // 카메라 사용위해
        <provider

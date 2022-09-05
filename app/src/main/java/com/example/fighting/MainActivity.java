@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.fighting.Walk.Walk;
+
 public class MainActivity extends AppCompatActivity {
     private FragmentManager fragmentManager;
     private ListActivity listActivity;

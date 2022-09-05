@@ -1,0 +1,8 @@
+<androidx.fragment.app.FragmentContainerView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frame_record"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+</androidx.fragment.app.FragmentContainerView>
+
+<!--// 참고 https://hujas.tistory.com/62-->

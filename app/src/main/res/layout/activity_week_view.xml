@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/s"
     android:orientation="vertical"
-    tools:context="com.example.fighting.WeekViewActivity">
+    tools:context="com.moo.fighting.WeekViewActivity">
 
 
     <LinearLayout

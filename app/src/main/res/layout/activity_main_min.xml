@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@color/s"
 
-    tools:context="com.example.fighting.MainActivity_min">
+    tools:context="com.moo.fighting.MainActivity_min">
 
     <LinearLayout
         android:layout_width="match_parent"
